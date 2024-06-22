@@ -117,8 +117,10 @@ main {
   display: flex;
   justify-content: center;
   text-align: center;
-  background-color: rgba(6, 6, 109, 0.269);
+  background-color: #dbecfd;
   margin: 10px;
+  width: auto;
+  padding: 15px 10px;
 }
 
 .mainBottom .bottomBox {
