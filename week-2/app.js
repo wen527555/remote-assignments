@@ -14,8 +14,8 @@ console.log(max([5, 2, 7, 1, 6]));
 
 // Assignment 2: Function and Object
 function calculate(args) {
-  let n1 = Number(args.n1);
-  let n2 = Number(args.n2);
+  const n1 = Number(args.n1);
+  const n2 = Number(args.n2);
   let result;
   switch (args.op) {
     case "+":
@@ -38,9 +38,9 @@ console.log(calculate({ n1: 1, n2: 6, op: "x" })); // expected output: 'Not supp
 
 //Assignment 3: Function, Array, and Object
 function calculate3(data) {
-  const prices = data.products.map((product) => product.price);
-  const totalPrice = prices.reduce((acc, price) => acc + price, 0);
-  console.log("totalPrice", totalPrice);
+  const totalPrice = data.products.reduce((acc, product) => {
+    return acc + product.price;
+  }, 0);
   const discountPrice = totalPrice * (1 - data.discount);
   return discountPrice;
 }
@@ -104,12 +104,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Assignment 5: Algorithm
 function twoSum(nums, target) {
+  const numMap = new Map();
+  console.log("numMap", numMap);
   for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
-      if (nums[i] + nums[j] === target) {
-        return [i, j];
-      }
+    let num1 = nums[i];
+    let num2 = target - num1;
+    if (numMap.has(num2)) {
+      return [num1, num2];
     }
+
+    numMap.set(num1, i);
   }
   throw new Error("No two sum solution");
 }
