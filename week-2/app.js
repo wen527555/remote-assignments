@@ -105,7 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
 //Assignment 5: Algorithm
 function twoSum(nums, target) {
   const numMap = new Map();
-  console.log("numMap", numMap);
   for (let i = 0; i < nums.length; i++) {
     let num1 = nums[i];
     let num2 = target - num1;
